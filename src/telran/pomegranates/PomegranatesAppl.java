@@ -54,7 +54,7 @@ public class PomegranatesAppl {
     public static List<Seed> generateSeeds(int min, int max) {
         return new Random()
                 .ints(min, max)
-                .limit((max - min + 1) + min)
+                .limit(new Random().nextInt(max - min + 1) + min)
                 .mapToObj(i -> new Seed(2.0))
                 .collect(Collectors.toList());
     }
